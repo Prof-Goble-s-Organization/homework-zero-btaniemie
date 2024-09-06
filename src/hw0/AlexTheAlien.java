@@ -1,9 +1,17 @@
 package hw0;
 
 public class AlexTheAlien extends SpaceAlien implements ZapsWithSlime {
+    private String planetType;
 
-    public AlexTheAlien(String homePlanet, double distanceFromEarth) {
+    public AlexTheAlien(String homePlanet, double distanceFromEarth, String planetType) {
         super(homePlanet, distanceFromEarth);
+        this.planetType = planetType;
+    }
+
+    @Override
+    public void doGreeting() {
+        super.doGreeting();
+        System.out.println("This alien is from a " + planetType);
     }
 
     @Override
@@ -23,7 +31,7 @@ public class AlexTheAlien extends SpaceAlien implements ZapsWithSlime {
         return "wubba lubba dub dub";
     }
     public static void main(String[] args) {
-        AlexTheAlien Alexa = new AlexTheAlien("Kepler-22b", 587.1);
+        AlexTheAlien Alexa = new AlexTheAlien("Kepler-22b", 587.1, "super Earth exoplanet");
         Alexa.doGreeting();
         System.out.println(Alexa.doSlimeZap(100));
         System.out.println(Alexa.doSlimeZap(5000));
